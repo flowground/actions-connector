@@ -1,0 +1,1314 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Actions",
+        "description": "Actions service is used to save and retrieve the action information "
+    },
+    "x-sap-shortText": "Save cloud event triggered for rules",
+    "security": [
+        {
+            "OAuth2": []
+        }
+    ],
+    "paths": {
+        "/v1/actions": {
+            "post": {
+                "summary": "Creates an action",
+                "description": "With this method, you can create an action. You can create different type of actions: Email, In-App, HTTP/Service Integration  \n",
+                "tags": [
+                    "Actions"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "actionRunResults": {
+                                        "type": "array",
+                                        "items": {}
+                                    },
+                                    "actionType": {
+                                        "type": "string"
+                                    },
+                                    "eventName": {
+                                        "type": "string"
+                                    },
+                                    "eventType": {
+                                        "type": "string"
+                                    },
+                                    "eventGUID": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "thingTypeGUID": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "severity": {
+                                        "type": "integer"
+                                    },
+                                    "methodType": {
+                                        "type": "string"
+                                    },
+                                    "authType": {
+                                        "type": "string"
+                                    },
+                                    "destinationName": {
+                                        "type": "string"
+                                    },
+                                    "triggeredEventOutbound": {
+                                        "type": "boolean"
+                                    },
+                                    "outboundEventName": {
+                                        "type": "string"
+                                    },
+                                    "respDocType": {
+                                        "type": "string"
+                                    },
+                                    "invocationType": {
+                                        "type": "string"
+                                    },
+                                    "header": {
+                                        "type": "string"
+                                    },
+                                    "body": {
+                                        "type": "string"
+                                    },
+                                    "requestBody": {
+                                        "type": "string"
+                                    },
+                                    "notificationTemplateId": {
+                                        "type": "string"
+                                    },
+                                    "notificationTypeKey": {
+                                        "type": "string"
+                                    },
+                                    "notificationTypeVersion": {
+                                        "type": "string"
+                                    },
+                                    "notificationLanguage": {
+                                        "type": "string"
+                                    },
+                                    "notificationTemplateContent": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "actionParameters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "path": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "namedPst": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "actionRecipients": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "New entity"
+                },
+                "responses": {
+                    "201": {
+                        "description": "Action created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "description": "Action created. Guid is:"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Action was empty/Guid not allowed during action creation"
+                    },
+                    "500": {
+                        "description": "Action save failed"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Updates action using action guid",
+                "description": "With this method, you can update certain attributes associated with action.\n",
+                "tags": [
+                    "Actions"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "actionRunResults": {
+                                        "type": "array",
+                                        "items": {}
+                                    },
+                                    "guid": {
+                                        "type": "string"
+                                    },
+                                    "actionType": {
+                                        "type": "string"
+                                    },
+                                    "eventName": {
+                                        "type": "string"
+                                    },
+                                    "eventType": {
+                                        "type": "string"
+                                    },
+                                    "eventGUID": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "thingTypeGUID": {
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "type": "integer"
+                                    },
+                                    "severity": {
+                                        "type": "integer"
+                                    },
+                                    "methodType": {
+                                        "type": "string"
+                                    },
+                                    "authType": {
+                                        "type": "string"
+                                    },
+                                    "destinationName": {
+                                        "type": "string"
+                                    },
+                                    "triggeredEventOutbound": {
+                                        "type": "boolean"
+                                    },
+                                    "outboundEventName": {
+                                        "type": "string"
+                                    },
+                                    "respDocType": {
+                                        "type": "string"
+                                    },
+                                    "invocationType": {
+                                        "type": "string"
+                                    },
+                                    "header": {
+                                        "type": "string"
+                                    },
+                                    "body": {
+                                        "type": "string"
+                                    },
+                                    "requestBody": {
+                                        "type": "string"
+                                    },
+                                    "notificationTemplateId": {
+                                        "type": "string"
+                                    },
+                                    "notificationTypeKey": {
+                                        "type": "string"
+                                    },
+                                    "notificationTypeVersion": {
+                                        "type": "string"
+                                    },
+                                    "notificationLanguage": {
+                                        "type": "string"
+                                    },
+                                    "notificationTemplateContent": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "actionParameters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "path": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "namedPst": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "actionRecipients": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "New entity"
+                },
+                "responses": {
+                    "202": {
+                        "description": "Action saved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "description": "Action saved. Guid is:"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Action Guid is missing"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieves actions",
+                "description": "With this method, you can retrieve all the existing actions.\n",
+                "tags": [
+                    "Actions"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "createdBy": {
+                                            "type": "string"
+                                        },
+                                        "createdTime": {
+                                            "type": "string"
+                                        },
+                                        "modifiedBy": {
+                                            "type": "string"
+                                        },
+                                        "modifiedTime": {
+                                            "type": "string"
+                                        },
+                                        "guid": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "actionType": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "thingTypeGUID": {
+                                            "type": "string"
+                                        },
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "severity": {
+                                            "type": "string"
+                                        },
+                                        "invocationType": {
+                                            "type": "string"
+                                        },
+                                        "notificationTemplateId": {
+                                            "type": "string"
+                                        },
+                                        "notificationTypeKey": {
+                                            "type": "string"
+                                        },
+                                        "notificationTypeVersion": {
+                                            "type": "string"
+                                        },
+                                        "notificationLanguage": {
+                                            "type": "string"
+                                        },
+                                        "notificationTemplateContent": {
+                                            "type": "string"
+                                        },
+                                        "eventName": {
+                                            "type": "string"
+                                        },
+                                        "eventType": {
+                                            "type": "string"
+                                        },
+                                        "eventGUID": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "methodType": {
+                                            "type": "string"
+                                        },
+                                        "authType": {
+                                            "type": "string"
+                                        },
+                                        "requestBody": {
+                                            "type": "string"
+                                        },
+                                        "destinationName": {
+                                            "type": "string"
+                                        },
+                                        "respDocType": {
+                                            "type": "string"
+                                        },
+                                        "triggeredEventOutbound": {
+                                            "type": "string"
+                                        },
+                                        "outboundEventName": {
+                                            "type": "string"
+                                        },
+                                        "header": {
+                                            "type": "string"
+                                        },
+                                        "body": {
+                                            "type": "string"
+                                        },
+                                        "destinationDetails": {
+                                            "type": "string"
+                                        },
+                                        "tenantId": {
+                                            "type": "string"
+                                        },
+                                        "cacheInstruction": {
+                                            "type": "string"
+                                        },
+                                        "actionParameters": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "createdBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "createdTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "guid": {
+                                                        "type": "string"
+                                                    },
+                                                    "actionGUID": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "path": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "namedPst": {
+                                                        "type": "string"
+                                                    },
+                                                    "eventTriggerGUID": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "actionRecipients": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "createdBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "createdTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "guid": {
+                                                        "type": "string"
+                                                    },
+                                                    "recipientId": {
+                                                        "type": "string"
+                                                    },
+                                                    "actionGUID": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "actionRunResults": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "targetObject": {
+                                            "type": "string"
+                                        },
+                                        "targetAction": {
+                                            "type": "string"
+                                        },
+                                        "actionTargetParameters": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "messagingTargetType": {
+                                            "type": "string"
+                                        },
+                                        "messagingTargetName": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Retrieval of action failed"
+                    }
+                }
+            }
+        },
+        "/v1/actions?guid": {
+            "get": {
+                "summary": "Retrieve an action based on action guid",
+                "description": "With this method, you can retrieve the details of a specified action.",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "guid",
+                        "in": "query",
+                        "description": "action Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "hasChildren": {
+                                            "type": "boolean"
+                                        },
+                                        "action": {
+                                            "type": "object",
+                                            "properties": {
+                                                "createdBy": {
+                                                    "type": "string"
+                                                },
+                                                "createdTime": {
+                                                    "type": "string"
+                                                },
+                                                "modifiedBy": {
+                                                    "type": "string"
+                                                },
+                                                "modifiedTime": {
+                                                    "type": "string"
+                                                },
+                                                "guid": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "actionType": {
+                                                    "type": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "thingTypeGUID": {
+                                                    "type": "string"
+                                                },
+                                                "status": {
+                                                    "type": "integer"
+                                                },
+                                                "severity": {
+                                                    "type": "string"
+                                                },
+                                                "invocationType": {
+                                                    "type": "string"
+                                                },
+                                                "notificationTemplateId": {
+                                                    "type": "string"
+                                                },
+                                                "notificationTypeKey": {
+                                                    "type": "string"
+                                                },
+                                                "notificationTypeVersion": {
+                                                    "type": "string"
+                                                },
+                                                "notificationLanguage": {
+                                                    "type": "string"
+                                                },
+                                                "notificationTemplateContent": {
+                                                    "type": "string"
+                                                },
+                                                "eventName": {
+                                                    "type": "string"
+                                                },
+                                                "eventType": {
+                                                    "type": "string"
+                                                },
+                                                "eventGUID": {
+                                                    "type": "string"
+                                                },
+                                                "url": {
+                                                    "type": "string"
+                                                },
+                                                "methodType": {
+                                                    "type": "string"
+                                                },
+                                                "authType": {
+                                                    "type": "string"
+                                                },
+                                                "requestBody": {
+                                                    "type": "string"
+                                                },
+                                                "destinationName": {
+                                                    "type": "string"
+                                                },
+                                                "respDocType": {
+                                                    "type": "string"
+                                                },
+                                                "triggeredEventOutbound": {
+                                                    "type": "boolean"
+                                                },
+                                                "outboundEventName": {
+                                                    "type": "string"
+                                                },
+                                                "header": {
+                                                    "type": "string"
+                                                },
+                                                "body": {
+                                                    "type": "string"
+                                                },
+                                                "destinationDetails": {
+                                                    "type": "string"
+                                                },
+                                                "tenantId": {
+                                                    "type": "string"
+                                                },
+                                                "cacheInstruction": {
+                                                    "type": "string"
+                                                },
+                                                "actionParameters": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "createdBy": {
+                                                                "type": "string"
+                                                            },
+                                                            "createdTime": {
+                                                                "type": "string"
+                                                            },
+                                                            "modifiedBy": {
+                                                                "type": "string"
+                                                            },
+                                                            "modifiedTime": {
+                                                                "type": "string"
+                                                            },
+                                                            "guid": {
+                                                                "type": "string"
+                                                            },
+                                                            "actionGUID": {
+                                                                "type": "string"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "path": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "namedPst": {
+                                                                "type": "string"
+                                                            },
+                                                            "eventTriggerGUID": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "actionRecipients": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "createdBy": {
+                                                                "type": "string"
+                                                            },
+                                                            "createdTime": {
+                                                                "type": "string"
+                                                            },
+                                                            "modifiedBy": {
+                                                                "type": "string"
+                                                            },
+                                                            "modifiedTime": {
+                                                                "type": "string"
+                                                            },
+                                                            "guid": {
+                                                                "type": "string"
+                                                            },
+                                                            "recipientId": {
+                                                                "type": "string"
+                                                            },
+                                                            "actionGUID": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "actionRunResults": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                },
+                                                "targetObject": {
+                                                    "type": "string"
+                                                },
+                                                "targetAction": {
+                                                    "type": "string"
+                                                },
+                                                "actionTargetParameters": {
+                                                    "type": "array",
+                                                    "items": {}
+                                                },
+                                                "messagingTargetType": {
+                                                    "type": "string"
+                                                },
+                                                "messagingTargetName": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "missingProps": {
+                                            "type": "array",
+                                            "items": {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Action Id not found"
+                    },
+                    "500": {
+                        "description": "Retrieval of action failed"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an action based on action guid",
+                "description": "With this method, you can delete an action with specific action ID.",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "guid",
+                        "in": "query",
+                        "description": "action Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "404": {
+                        "description": "Action not found"
+                    },
+                    "500": {
+                        "description": "Deletion of action failed"
+                    }
+                }
+            }
+        },
+        "/v1/actionEvent": {
+            "put": {
+                "summary": "Update an action event",
+                "description": "With this method, you can update status of an event based on action event id \n",
+                "tags": [
+                    "Actions"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "string"
+                                    },
+                                    "eventId": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "New entity"
+                },
+                "responses": {
+                    "202": {
+                        "description": "Received and published/Received but not published due to status"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/v1/actionEvent?$filter": {
+            "get": {
+                "summary": "Retrieve an action event",
+                "description": "With this method, you can retrieve action events with pending/all status \n",
+                "tags": [
+                    "Actions"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filter condition to be applied; the only valid filters are all and pending,The filter operators supported are =",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Received and published/ Received but not published due to status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "createdBy": {
+                                                "type": "string"
+                                            },
+                                            "createdTime": {
+                                                "type": "string"
+                                            },
+                                            "modifiedBy": {
+                                                "type": "string"
+                                            },
+                                            "modifiedTime": {
+                                                "type": "string"
+                                            },
+                                            "status": {
+                                                "type": "string"
+                                            },
+                                            "eventId": {
+                                                "type": "string"
+                                            },
+                                            "eventTime": {
+                                                "type": "string"
+                                            },
+                                            "eventType": {
+                                                "type": "string"
+                                            },
+                                            "sourceGUID": {
+                                                "type": "string"
+                                            },
+                                            "eventContent": {
+                                                "type": "string"
+                                            },
+                                            "guid": {
+                                                "type": "string"
+                                            },
+                                            "action": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "createdBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "createdTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "modifiedTime": {
+                                                        "type": "string"
+                                                    },
+                                                    "guid": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "actionType": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "thingTypeGUID": {
+                                                        "type": "string"
+                                                    },
+                                                    "status": {
+                                                        "type": "integer"
+                                                    },
+                                                    "severity": {
+                                                        "type": "string"
+                                                    },
+                                                    "invocationType": {
+                                                        "type": "string"
+                                                    },
+                                                    "notificationTemplateId": {
+                                                        "type": "string"
+                                                    },
+                                                    "notificationTypeKey": {
+                                                        "type": "string"
+                                                    },
+                                                    "notificationTypeVersion": {
+                                                        "type": "string"
+                                                    },
+                                                    "notificationLanguage": {
+                                                        "type": "string"
+                                                    },
+                                                    "notificationTemplateContent": {
+                                                        "type": "string"
+                                                    },
+                                                    "eventName": {
+                                                        "type": "string"
+                                                    },
+                                                    "eventType": {
+                                                        "type": "string"
+                                                    },
+                                                    "eventGUID": {
+                                                        "type": "string"
+                                                    },
+                                                    "url": {
+                                                        "type": "string"
+                                                    },
+                                                    "methodType": {
+                                                        "type": "string"
+                                                    },
+                                                    "authType": {
+                                                        "type": "string"
+                                                    },
+                                                    "requestBody": {
+                                                        "type": "string"
+                                                    },
+                                                    "destinationName": {
+                                                        "type": "string"
+                                                    },
+                                                    "respDocType": {
+                                                        "type": "string"
+                                                    },
+                                                    "triggeredEventOutbound": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "outboundEventName": {
+                                                        "type": "string"
+                                                    },
+                                                    "header": {
+                                                        "type": "string"
+                                                    },
+                                                    "body": {
+                                                        "type": "string"
+                                                    },
+                                                    "destinationDetails": {
+                                                        "type": "string"
+                                                    },
+                                                    "tenantId": {
+                                                        "type": "string"
+                                                    },
+                                                    "cacheInstruction": {
+                                                        "type": "string"
+                                                    },
+                                                    "actionParameters": {
+                                                        "type": "array",
+                                                        "items": {}
+                                                    },
+                                                    "actionRecipients": {
+                                                        "type": "array",
+                                                        "items": {}
+                                                    },
+                                                    "actionRunResults": {
+                                                        "type": "array",
+                                                        "items": {}
+                                                    },
+                                                    "targetObject": {
+                                                        "type": "string"
+                                                    },
+                                                    "targetAction": {
+                                                        "type": "string"
+                                                    },
+                                                    "actionTargetParameters": {
+                                                        "type": "array",
+                                                        "items": {}
+                                                    },
+                                                    "messagingTargetType": {
+                                                        "type": "string"
+                                                    },
+                                                    "messagingTargetName": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "url": "https://sap-iot-noah-live-{appname}.cfapps.{host}",
+            "description": "Actions REST API endpoint",
+            "templates": {
+                "appname": {
+                    "default": "action-modeler",
+                    "description": "The application name"
+                },
+                "host": {
+                    "enum": [
+                        "eu10.hana.ondemand.com"
+                    ],
+                    "default": "eu10.hana.ondemand.com",
+                    "description": "SAP IOT AE host"
+                },
+                "tenant": {
+                    "description": " To use this REST API,you need to get OAuth client credentials (client ID and secret) from SAP Cloud Platform. After that, you need to pass the obtained client credentials to the tenant-specific token endpoint to obtain an access token.",
+                    "enum": [
+                        "sap-iotaehandson2"
+                    ],
+                    "default": "sap-iotaehandson2"
+                }
+            }
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "OAuth2": {
+                "type": "oauth2",
+                "flows": {
+                    "clientCredentials": {
+                        "tokenUrl": "https://{tenant}.authentication.eu10.hana.ondemand.com/oauth/token",
+                        "scopes": {}
+                    }
+                }
+            }
+        },
+        "schemas": {
+            "com.sap.appiot.as.Actions": {
+                "type": "object",
+                "properties": {
+                    "actionRunResults": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "actionType": {
+                        "type": "string"
+                    },
+                    "eventName": {
+                        "type": "string"
+                    },
+                    "eventType": {
+                        "type": "string"
+                    },
+                    "eventGUID": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "thingTypeGUID": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "methodType": {
+                        "type": "string"
+                    },
+                    "authType": {
+                        "type": "string"
+                    },
+                    "destinationName": {
+                        "type": "string"
+                    },
+                    "triggeredEventOutbound": {
+                        "type": "boolean"
+                    },
+                    "outboundEventName": {
+                        "type": "string"
+                    },
+                    "respDocType": {
+                        "type": "string"
+                    },
+                    "invocationType": {
+                        "type": "string"
+                    },
+                    "header": {
+                        "type": "string"
+                    },
+                    "body": {
+                        "type": "string"
+                    },
+                    "requestBody": {
+                        "type": "string"
+                    },
+                    "notificationTemplateId": {
+                        "type": "string"
+                    },
+                    "notificationTypeKey": {
+                        "type": "string"
+                    },
+                    "notificationTypeVersion": {
+                        "type": "string"
+                    },
+                    "notificationLanguage": {
+                        "type": "string"
+                    },
+                    "notificationTemplateContent": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "actionParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "path": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "namedPst": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "actionRecipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "com.sap.appiot.as.ActionUpdate": {
+                "type": "object",
+                "properties": {
+                    "actionRunResults": {
+                        "type": "array",
+                        "items": {}
+                    },
+                    "guid": {
+                        "type": "string"
+                    },
+                    "actionType": {
+                        "type": "string"
+                    },
+                    "eventName": {
+                        "type": "string"
+                    },
+                    "eventType": {
+                        "type": "string"
+                    },
+                    "eventGUID": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "thingTypeGUID": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "methodType": {
+                        "type": "string"
+                    },
+                    "authType": {
+                        "type": "string"
+                    },
+                    "destinationName": {
+                        "type": "string"
+                    },
+                    "triggeredEventOutbound": {
+                        "type": "boolean"
+                    },
+                    "outboundEventName": {
+                        "type": "string"
+                    },
+                    "respDocType": {
+                        "type": "string"
+                    },
+                    "invocationType": {
+                        "type": "string"
+                    },
+                    "header": {
+                        "type": "string"
+                    },
+                    "body": {
+                        "type": "string"
+                    },
+                    "requestBody": {
+                        "type": "string"
+                    },
+                    "notificationTemplateId": {
+                        "type": "string"
+                    },
+                    "notificationTypeKey": {
+                        "type": "string"
+                    },
+                    "notificationTypeVersion": {
+                        "type": "string"
+                    },
+                    "notificationLanguage": {
+                        "type": "string"
+                    },
+                    "notificationTemplateContent": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "actionParameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "path": {
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "type": "string"
+                                },
+                                "namedPst": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "actionRecipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "com.sap.appiot.as.ActionDelete": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "com.sap.appiot.as.ActionEventUpdate": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "eventId": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

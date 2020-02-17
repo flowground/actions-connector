@@ -1,0 +1,153 @@
+{
+    "title": "Actions",
+    "description": "Actions service is used to save and retrieve the action information ",
+    "docsUrl": "",
+    "url": "https://sap-iot-noah-live-{appname}.cfapps.{host}",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://sap-iot-noah-live-{appname}.cfapps.{host} - Actions REST API endpoint",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "post_v1_actions": {
+            "main": "./lib/actions/post_v1_actions.js",
+            "title": "Creates an action",
+            "description": "With this method, you can create an action. You can create different type of actions: Email, In-App, HTTP/Service Integration  \n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_v1_actions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v1_actions": {
+            "main": "./lib/actions/put_v1_actions.js",
+            "title": "Updates action using action guid",
+            "description": "With this method, you can update certain attributes associated with action.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v1_actions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_actions": {
+            "main": "./lib/actions/get_v1_actions.js",
+            "title": "Retrieves actions",
+            "description": "With this method, you can retrieve all the existing actions.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_actions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_actions_guid": {
+            "main": "./lib/actions/get_v1_actions_guid.js",
+            "title": "Retrieve an action based on action guid",
+            "description": "With this method, you can retrieve the details of a specified action.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_actions_guid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_v1_actions_guid": {
+            "main": "./lib/actions/delete_v1_actions_guid.js",
+            "title": "Delete an action based on action guid",
+            "description": "With this method, you can delete an action with specific action ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_v1_actions_guid.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_v1_actionEvent": {
+            "main": "./lib/actions/put_v1_actionEvent.js",
+            "title": "Update an action event",
+            "description": "With this method, you can update status of an event based on action event id \n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_v1_actionEvent.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_v1_actionEvent__filter": {
+            "main": "./lib/actions/get_v1_actionEvent__filter.js",
+            "title": "Retrieve an action event",
+            "description": "With this method, you can retrieve action events with pending/all status \n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_v1_actionEvent__filter.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

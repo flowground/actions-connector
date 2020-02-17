@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "actionRunResults": {
+                    "type": "array",
+                    "items": {}
+                },
+                "actionType": {
+                    "type": "string"
+                },
+                "eventName": {
+                    "type": "string"
+                },
+                "eventType": {
+                    "type": "string"
+                },
+                "eventGUID": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "thingTypeGUID": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "methodType": {
+                    "type": "string"
+                },
+                "authType": {
+                    "type": "string"
+                },
+                "destinationName": {
+                    "type": "string"
+                },
+                "triggeredEventOutbound": {
+                    "type": "boolean"
+                },
+                "outboundEventName": {
+                    "type": "string"
+                },
+                "respDocType": {
+                    "type": "string"
+                },
+                "invocationType": {
+                    "type": "string"
+                },
+                "header": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "requestBody": {
+                    "type": "string"
+                },
+                "notificationTemplateId": {
+                    "type": "string"
+                },
+                "notificationTypeKey": {
+                    "type": "string"
+                },
+                "notificationTypeVersion": {
+                    "type": "string"
+                },
+                "notificationLanguage": {
+                    "type": "string"
+                },
+                "notificationTemplateContent": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "actionParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "namedPst": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "actionRecipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
